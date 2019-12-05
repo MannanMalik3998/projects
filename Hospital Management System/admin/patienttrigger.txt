@@ -1,0 +1,6 @@
+CREATE OR REPLACE TRIGGER Page_Delete_Trigger
+BEFORE delete ON patient
+FOR EACH ROW
+BEGIN
+insert into patienthistory values(:old.name,:old.age,:old.email,:old.admitdate,:old.did,:old.rid);
+END;
